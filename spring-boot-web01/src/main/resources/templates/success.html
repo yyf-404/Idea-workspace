@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>success</title>
+</head>
+<body>
+<h1>success</h1>
+<div th:text="${hello}"></div> <!-- 修改单个元素-->
+<!-- 循环的用法-->
+<div th:text="${word}" th:each="word:${words}"></div>
+</body>
+</html>

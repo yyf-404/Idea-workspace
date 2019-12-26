@@ -1,0 +1,5 @@
+user:
+  lastName: yyf${random.uuid}
+  cars:
+    - ${user.name}_dog
+    - ${user.hello:def}_dog
