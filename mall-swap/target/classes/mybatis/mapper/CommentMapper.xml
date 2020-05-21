@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yyf.mallcache.mapper.CommentMapper" >
+    <resultMap id="BaseResultMap" type="com.yyf.mallcache.bean.Comment" >
+        <id column="id" property="id" jdbcType="INTEGER" />
+        <result column="product_id" property="productId" jdbcType="INTEGER" />
+        <result column="words" property="words" jdbcType="VARCHAR" />
+        <association property="user"
+                     select="com.yyf.mallcache.mapper.UserMapper.selectByPrimaryKey"
+                     column="user_id" fetchType="eager">
+        </association>
+    </resultMap>
+
+    <insert id="insert" parameterType="com.yyf.mallcache.bean.Comment" useGeneratedKeys="true">
+   INSERT INTO mall_comment(user_id,product_id,words,time)
+    VALUES(#{user.userId}, #{productId},#{words},#{time})
+  </insert>
+
+    <select id="selectByProductId" resultMap="BaseResultMap" >
+    select id,user_id, product_id,words,time
+    from mall_comment where product_id=#{productId}
+  </select>
+</mapper>

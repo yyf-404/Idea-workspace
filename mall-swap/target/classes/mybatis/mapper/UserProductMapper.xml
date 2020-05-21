@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yyf.mallcache.mapper.UserProductMapper" >
+    <resultMap id="BaseResultMap" type="com.yyf.mallcache.bean.UserProduct" >
+        <result column="user_id" property="userId" jdbcType="INTEGER" />
+        <result column="product_id" property="productId" jdbcType="INTEGER" />
+    </resultMap>
+
+    <insert id="insert" parameterType="com.yyf.mallcache.bean.UserProduct" useGeneratedKeys="true">
+    insert into user_product ( user_id,product_id)
+    values (#{userId}, #{productId})
+  </insert>
+
+
+</mapper>

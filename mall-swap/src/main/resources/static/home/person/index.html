@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=0">
+	<base href="../">
+<title>个人中心</title>
+<link href="AmazeUI-2.4.2/assets/css/admin.css" rel="stylesheet"
+	type="text/css">
+<link href="AmazeUI-2.4.2/assets/css/amazeui.css" rel="stylesheet"
+	type="text/css">
+<link href="css/personal.css" rel="stylesheet" type="text/css">
+<link href="css/systyle.css" rel="stylesheet" type="text/css">
+<script src="AmazeUI-2.4.2/assets/js/jquery.min.js"></script>
+<script type="text/javascript" src="js/person/getPersonName.js"></script>
+<script type="text/javascript" src="js/person/getOrderMessage.js"></script>
+<script type="text/javascript" src="js/person/getDate.js"></script>
+<script type="text/javascript" src="js/searchClick.js"></script>
+</head>
+<body>
+	<!--头 -->
+	<header>
+		<article>
+			<div class="mt-logo">
+				<!--顶部导航条 -->
+				<div class="am-container header">
+					<ul class="message-r">
+						<div class="topMessage home">
+							<div class="menu-hd">
+								<a href="home" target="_top" class="h">商城首页</a>
+							</div>
+						</div>
+					
+						<div class="topMessage mini-cart">
+							<div class="menu-hd">
+								<a id="mc-menu-hd" href="shopcart" target="_top"><i
+									class="am-icon-shopping-cart  am-icon-fw"></i><span>购物车</span><strong
+									id="J_MiniCartNum" class="h">0</strong></a>
+							</div>
+						</div>
+						<div class="topMessage favorite">
+							<div class="menu-hd">
+								<a href="person/collection" target="_top"><i
+									class="am-icon-heart am-icon-fw"></i><span>收藏夹</span></a>
+							</div>
+						</div>
+					</ul>
+				</div>
+
+				<!--悬浮搜索框-->
+
+				<div class="nav white">
+					<div class="logoBig">
+						<li><img src="images/logobig.png" /></li>
+					</div>
+
+					<div class="search-bar pr">
+					<a name="index_none_header_sysc" href="#"></a>
+						<form>
+							<input id="searchInput" name="index_none_header_sysc" type="text"
+								placeholder="搜索" autocomplete="off"> <input
+								id="ai-topsearch" class="submit am-btn" value="搜索" index="1"
+								type="button" >
+						</form>
+					</div>
+				</div>
+
+				<div class="clear"></div>
+			</div>
+		</article>
+	</header>
+	<div class="nav-table">
+		<div class="long-title">
+			<span class="all-goods">全部分类</span>
+		</div>
+		<div class="nav-cont">
+			<ul>
+				<li class="index"><a href="#">首页</a></li>
+			</ul>
+			<div class="nav-extra">
+				<i class="am-icon-user-secret am-icon-md nav-user"></i><b></b>我的福利 <i
+					class="am-icon-angle-right" style="padding-left: 10px;"></i>
+			</div>
+		</div>
+	</div>
+	<b class="line"></b>
+	<div class="center">
+		<div class="col-main">
+			<div class="main-wrap">
+				<div class="wrap-left">
+					<div class="wrap-list">
+						<div class="m-user">
+							<!--个人信息 -->
+							<div class="m-bg"></div>
+							<div class="m-userinfo">
+								<div class="m-baseinfo">
+									<a href="javascript:void(0)"> <img
+										src="images/getAvatar.do.jpg">
+									</a> <em class="s-name"><!-- (小叮当) --></em>
+									<div class="s-prestige am-btn am-round">会员福利</div>
+								</div>
+								<div class="m-right">
+									<div class="m-new">
+										<a href="javascript:void(0)"><i class="am-icon-bell-o"></i>消息</a>
+									</div>
+									<div class="m-address">
+										<a href="person/address" class="i-trigger">我的收货地址</a>
+									</div>
+								</div>
+							</div>
+
+							<!--个人资产-->
+							<div class="m-userproperty">
+								<div class="s-bar">
+									<i class="s-icon"></i>个人资产
+								</div>
+								<p class="m-bonus">
+									<a href="person/bonus"> <i><img src="images/bonus.png" /></i>
+										<span class="m-title">红包</span> <em class="m-num">2</em>
+									</a>
+								</p>
+								<p class="m-coupon">
+									<a href="person/coupon"> <i><img src="images/coupon.png" /></i>
+										<span class="m-title">优惠券</span> <em class="m-num">2</em>
+									</a>
+								</p>
+								<p class="m-bill">
+									<a href="person/bill"> <i><img src="images/wallet.png" /></i>
+										<span class="m-title">钱包</span> <em class="m-num">2</em>
+									</a>
+								</p>
+								<p class="m-big">
+									<a href="javascript:void(0)"> <i><img src="images/day-to.png" /></i> <span
+										class="m-title">签到有礼</span>
+									</a>
+								</p>
+								<p class="m-big">
+									<a href="javascript:void(0)"> <i><img src="images/72h.png" /></i> <span
+										class="m-title">72小时发货</span>
+									</a>
+								</p>
+							</div>
+						</div>
+						<div class="box-container-bottom"></div>
+
+						<!--订单 -->
+						<div class="m-order">
+							<div class="s-bar">
+								<i class="s-icon"></i>我的订单 <a class="i-load-more-item-shadow"
+									href="person/order">全部订单</a>
+							</div>
+							<ul>
+								<li><a href="person/order"><i><img
+											src="images/pay.png" /></i><span>待付款</span></a></li>
+								<li name="send"><a href="person/order"><i><img
+											src="images/send.png" /></i><span>待发货<em class="m-num"><!-- 0 --></em></span></a></li>
+								<li name="take"><a href="person/order"><i><img
+											src="images/receive.png" /></i><span>待收货<em class="m-num"><!-- 0 --></em></span></a></li>
+								<li name="finish"><a href="person/order"><i><img
+											src="images/comment.png" /></i><span>已完成<em class="m-num"><!-- 0 --></em></span></a></li>
+								<li><a href="person/order"><i><img
+											src="images/refund.png" /></i><span>退换货</span></a></li>
+							</ul>
+						</div>
+						<!--九宫格-->
+						<div class="user-patternIcon">
+							<div class="s-bar">
+								<i class="s-icon"></i>我的常用
+							</div>
+							<ul>
+
+								<a href="shopcart"><li class="am-u-sm-4"><i
+										class="am-icon-shopping-basket am-icon-md"></i><img
+										src="images/iconbig.png" />
+									<p>购物车</p></li></a>
+								<a href="person/collection"><li class="am-u-sm-4"><i
+										class="am-icon-heart am-icon-md"></i><img
+										src="images/iconsmall1.png" />
+									<p>我的收藏</p></li></a>
+								<a href="person/information"><li class="am-u-sm-4"><i
+										class="am-icon-gift am-icon-md"></i><img
+										src="images/iconsmall0.png" />
+									<p>个人信息</p></li></a>
+								<a href="person/bill"><li class="am-u-sm-4"><i
+										class="am-icon-pencil am-icon-md"></i><img
+										src="images/iconsmall3.png" />
+									<p>账单明细</p></li></a>
+								<a href="person/order"><li class="am-u-sm-4"><i
+										class="am-icon-clock-o am-icon-md"></i><img
+										src="images/iconsmall2.png" />
+									<p>订单管理</p></li></a>
+							</ul>
+						</div>
+						<!--订单 -->
+						<div class="m-logistics">
+
+							<div class="s-bar">
+								<i class="s-icon"></i>最近订单
+							</div>
+							<div class="s-content">
+								<ul class="lg-list">
+									<li class="lg-item">
+										<div class="item-info">
+											<a href="#"><img name="productImage" src="images/default/Headdefault.jpg"
+												alt="">
+											</a>
+										</div>
+										<div class="lg-info">
+											<p name="productName"><!--商品名  --></p>
+											<time><!-- 时间 --></time>
+
+											<div class="lg-detail-wrap">
+												<a class="lg-detail i-tip-trigger" href="person/order">查看订单明细</a>
+												<div class="J_TipsCon hide">
+													<div class="s-tip-content">
+													</div>
+												</div>
+											</div>
+
+										</div>
+										<div class="lg-confirm">
+											<a class="i-btn-typical" href="#">确认收货</a>
+										</div>
+									</li>
+									<div class="clear"></div>
+
+						
+
+								</ul>
+
+							</div>
+
+						</div>
+
+
+					</div>
+				</div>
+				<div class="wrap-right">
+
+					<!-- 日历-->
+					<div class="day-list">
+						<div class="s-bar">
+							<a class="i-history-trigger s-icon" ></a>我的日历 <a
+								class="i-setting-trigger s-icon"></a>
+						</div>
+						<div class="s-care s-care-noweather">
+							<div class="s-date">
+								<em><!-- 本月第几天 --></em> <span><!-- 星期一 --></span> 
+								<span><!-- 年月 --></span>
+							</div>
+						</div>
+					</div>
+					<!--新品 -->
+					<div class="new-goods">
+						<div class="s-bar">
+							<i class="s-icon"></i>今日新品 <a class="i-load-more-item-shadow">15款新品</a>
+						</div>
+						<div class="new-goods-info">
+							<a class="shop-info" href="javascript:void(0)" >
+								<div class="face-img-panel">
+									<img src="images/imgsearch1.jpg" alt="">
+								</div> <span class="new-goods-num ">4</span> <span class="shop-title">剥壳松子</span>
+							</a> <a class="follow " target="_blank">关注</a>
+						</div>
+					</div>
+
+
+				</div>
+			</div>
+			<!--底部-->
+			<div class="footer">
+					<div class="footer-hd">
+						<p>
+							<a href="javascript:void(0)">Ikun科技</a>
+							<b>|</b>
+							<a href="#">商城首页</a>
+							<b>|</b>
+							<a href="javascript:void(0)">支付宝</a>
+							<b>|</b>
+							<a href="javascript:void(0)">物流</a>
+						</p>
+					</div>
+					<div class="footer-bd">
+						<p>
+							<a href="javascript:void(0)">关于Ikun</a>
+							<a href="javascript:void(0)">合作伙伴</a>
+							<a href="javascript:void(0)">联系我们</a>
+							<a href="javascript:void(0)">网站地图</a>
+							<em>© 2015-2025 Ikun.com 版权所有</em>
+						</p>
+					</div>
+				</div>
+
+		</div>
+
+		<aside class="menu">
+			<ul>
+					<li class="person active">
+						<a href="person/index">个人中心</a>
+					</li>
+					<li class="person">
+						<br />
+						<ul>
+							<li> <a href="person/information">个人信息</a></li>
+							<li> <a href="person/safety">安全设置</a></li>
+							<li> <a href="person/address">收货地址</a></li>
+						</ul>
+						<br />
+					</li>
+					<li class="person">
+						<br />
+						<ul>
+							<li><a href="person/order">订单管理</a></li>
+							<li> <a href="person/collection">收藏</a></li>
+							<li> <a href="person/bill">账单明细</a></li>
+						</ul>
+						<br />
+					</li>
+				<li class="person">
+					<br />
+					<ul>
+						<li> <a href="person/addProduct">出售商品 </a></li>
+						<li> <a href="person/productsManagement">商品管理</a></li>
+					</ul>
+					<br />
+				</li>
+				</ul>
+		</aside>
+	</div>
+
+</body>
+
+</html>

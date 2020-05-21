@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yyf.mallcache.mapper.ProductMapper">
+	<resultMap id="BaseResultMap" type="com.yyf.mallcache.bean.Product">
+
+		<id column="product_id" property="productId" jdbcType="INTEGER" />
+		<result column="product_name" property="productName"
+			jdbcType="VARCHAR" />
+		<result column="product_detail" property="productDetail"
+			jdbcType="VARCHAR" />
+		<result column="product_price" property="productPrice"
+			jdbcType="DECIMAL" />
+		<result column="product_taste" property="productTaste"
+			jdbcType="VARCHAR" />
+		<result column="product_storeNumber"
+			property="productStorenumber" jdbcType="INTEGER" />
+		<result column="product_salesAmount"
+			property="productSalesamount" jdbcType="INTEGER" />
+		<association property="image"
+			select="com.yyf.mallcache.mapper.ImageMapper.selectByProductIdGetSearchImage"
+			column="product_id" fetchType="eager">
+		</association>
+		<!-- 专门用于购物车的结果集 -->
+		<!-- selectByProductIdGetCartImage -->
+	</resultMap>
+		<resultMap id="cartResultMap" type="com.yyf.mallcache.bean.Product">
+		<id column="product_id" property="productId" jdbcType="INTEGER" />
+		<result column="product_name" property="productName"
+			jdbcType="VARCHAR" />
+		<result column="product_detail" property="productDetail"
+			jdbcType="VARCHAR" />
+		<result column="product_price" property="productPrice"
+			jdbcType="DECIMAL" />
+		<result column="product_taste" property="productTaste"
+			jdbcType="VARCHAR" />
+		<result column="product_storeNumber"
+			property="productStorenumber" jdbcType="INTEGER" />
+		<result column="product_salesAmount"
+			property="productSalesamount" jdbcType="INTEGER" />
+		<association property="image"
+			select="com.yyf.mallcache.mapper.ImageMapper.selectByProductIdGetCartImage"
+			column="product_id" fetchType="eager">
+		</association>
+	</resultMap>
+	
+	<delete id="deleteByPrimaryKey"
+		parameterType="java.lang.Integer">
+		delete from mall_product
+		where product_id = #{productId,jdbcType=INTEGER}
+	</delete>
+	<insert id="insert" parameterType="com.yyf.mallcache.bean.Product" useGeneratedKeys="true" keyProperty="productId">
+		insert into mall_product ( product_name, product_detail,
+		product_price, product_taste, product_storeNumber,
+		product_salesAmount)
+		values ( #{productName,jdbcType=VARCHAR},
+		#{productDetail,jdbcType=VARCHAR},
+		#{productPrice,jdbcType=DECIMAL}, #{productTaste,jdbcType=VARCHAR},
+		#{productStorenumber,jdbcType=INTEGER},
+		#{productSalesamount,jdbcType=INTEGER})
+	</insert>
+	<update id="updateByPrimaryKey"
+		parameterType="com.yyf.mallcache.bean.Product" >
+		update mall_product
+		set product_name = #{productName},
+		product_detail = #{productDetail},
+		product_price = #{productPrice},
+		product_taste = #{productTaste},
+		product_storeNumber = #{productStorenumber},
+		product_salesAmount = #{productSalesamount}
+		where product_id = #{productId}
+	</update>
+	
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
+		parameterType="java.lang.Integer">
+		select product_id, product_name, product_detail, product_price,
+		product_taste, product_storeNumber,
+		product_salesAmount
+		from mall_product
+		where product_id = #{productId,jdbcType=INTEGER}
+	</select>
+	<!-- List<Product> selectPageByCondition(@Param("pageNo")Integer pageNo,@Param("pageSize")int 
+		pageSize); -->
+	<select id="selectPageByCondition" resultMap="BaseResultMap">
+		<bind name="_curNo" value="(pageNo-1)*pageSize " />
+		<if test="productName!=null ">
+			<bind name="_productName" value=" '%'+productName+'%' " />
+		</if>
+		select product_id, product_name, product_detail, product_price,
+		product_taste, product_storeNumber,
+		product_salesAmount
+		from mall_product
+		<where>
+			<if test="productKind!=null &amp;&amp; productKind.trim()!='' ">
+			product_id IN(SELECT product_id FROM product_kind WHERE kind_name=#{productKind}) 
+			</if>
+			<if test="productName!=null ">
+				and product_name like #{_productName}
+			</if>
+		</where>
+		<include refid="orderSql">
+		</include>
+		limit #{_curNo},#{pageSize}
+	</select>
+	<select id="selectProductByUserId" resultMap="BaseResultMap">
+		select product_id, product_name, product_detail, product_price,
+		product_taste, product_storeNumber,
+		product_salesAmount
+		from mall_product
+		where 	product_id IN(SELECT product_id FROM user_product WHERE user_id=#{userId})
+	</select>
+	<!--  Integer getTotalcountByCondition(@Param("productKind")String  productKind
+    		,@Param("productName") String productName); -->
+		<select id="getTotalcountByCondition" resultType="Integer">
+		<if test="productName!=null ">
+			<bind name="_productName" value=" '%'+productName+'%' " />
+		</if>
+		select count(*)
+		from mall_product
+		<where>
+			<if test="productKind!=null &amp;&amp; productKind.trim()!='' ">
+			product_id IN(SELECT product_id FROM product_kind WHERE kind_name=#{productKind}) 
+			</if>
+			<if test="productName!=null ">
+				and product_name like #{_productName}
+			</if>
+		</where>
+	</select>
+	<sql id="orderSql">
+		<if test="orderWay==0"></if>
+		<if test="orderWay==1">ORDER BY product_price </if>
+		<if test="orderWay==2">ORDER BY product_price DESC </if>
+		<if test="orderWay==3">ORDER BY product_salesAmount DESC </if>
+		<if test="orderWay==4">ORDER BY product_salesAmount  </if>
+	</sql>
+	
+	<!--  List<String> selectTasteByProductName(); -->
+	<select id="selectTasteByProductName" resultType="String" >
+	SELECT product_taste FROM mall_product WHERE product_name=#{productName}
+	</select>
+	<!-- Product getCartProductByPrimaryKey(Integer productId); -->
+	<select id="getCartProductByPrimaryKey" resultMap="cartResultMap">
+	select product_id, product_name, product_detail, product_price,
+		product_taste, product_storeNumber,
+		product_salesAmount
+		from mall_product
+		where product_id = #{productId}
+	</select>
+</mapper>

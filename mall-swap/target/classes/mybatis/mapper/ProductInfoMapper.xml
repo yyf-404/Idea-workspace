@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yyf.mallcache.mapper.ProductInfoMapper" >
+<resultMap type="com.yyf.mallcache.bean.ProductInfo" id="ProductInfoMap">
+<result column="product_brand" property="productBrand" />
+<association property="product" select="com.yyf.mallcache.mapper.ProductMapper.selectByPrimaryKey"
+			column="product_id" fetchType="eager">
+</association>
+</resultMap>
+<resultMap type="com.yyf.mallcache.bean.SecProductInfo" id="secProductInfoMap">
+<result column="product_brand" property="productBrand" />
+
+	<!-- 由于要使用缓存  无法用association 所以使用下面的resultMap-->
+</resultMap>
+	<resultMap type="com.yyf.mallcache.bean.ProductInfo" id="ProductInfoMap2">
+		<result column="product_brand" property="productBrand" />
+	</resultMap>
+<!-- ProductInfo getProductInfoById(Integer product_id); -->
+<select id="getProductInfoById" resultMap="ProductInfoMap2">
+SELECT product_id,product_brand FROM product_info WHERE product_id=#{productId}
+</select>
+
+<!-- SecProductInfo getSecProductInfoById(Integer product_id); -->
+<select id="getSecProductInfoById" resultMap="secProductInfoMap">
+SELECT product_id,product_brand FROM product_info WHERE product_id=#{productId}
+</select>
+</mapper>

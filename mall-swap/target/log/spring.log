@@ -1,0 +1,91 @@
+2020-05-08 10:25:00.788  INFO 12600 --- [main] com.yyf.mallcache.MallCacheApplication   : Starting MallCacheApplication v1.0-SNAPSHOT on DESKTOP-0GQ2AJO with PID 12600 (E:\Idea-workspace\mall-swap\target\mall-swap-1.0-SNAPSHOT.jar started by Yao98 in E:\Idea-workspace\mall-swap\target)
+2020-05-08 10:25:00.788  INFO 12600 --- [main] com.yyf.mallcache.MallCacheApplication   : No active profile set, falling back to default profiles: default
+2020-05-08 10:25:01.834  INFO 12600 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-05-08 10:25:01.834  INFO 12600 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2020-05-08 10:25:01.866  INFO 12600 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 18ms. Found 0 repository interfaces.
+2020-05-08 10:25:02.522  INFO 12600 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-05-08 10:25:03.460  INFO 12600 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-05-08 10:25:03.475  INFO 12600 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-05-08 10:25:03.475  INFO 12600 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.27]
+2020-05-08 10:25:03.991  INFO 12600 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-05-08 10:25:04.007  INFO 12600 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 3120 ms
+2020-05-08 10:25:04.600  INFO 12600 --- [main] f.a.AutowiredAnnotationBeanPostProcessor : Autowired annotation is not supported on static fields: static javax.sql.DataSource com.yyf.mallcache.MallCacheApplication.dataSource
+2020-05-08 10:25:04.600  INFO 12600 --- [main] f.a.AutowiredAnnotationBeanPostProcessor : Autowired annotation is not supported on static fields: static javax.sql.DataSource com.yyf.mallcache.MallCacheApplication.dataSource
+2020-05-08 10:25:05.319  INFO 12600 --- [main] com.yyf.mallcache.util.BloomFilterUtil   : productMapperorg.apache.ibatis.binding.MapperProxy@942a29c
+2020-05-08 10:25:05.429  INFO 12600 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-05-08 10:25:05.444  WARN 12600 --- [main] com.zaxxer.hikari.util.DriverDataSource  : Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2020-05-08 10:25:07.992  INFO 12600 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-05-08 10:25:10.539  INFO 12600 --- [main] c.y.mallcache.controller.SecController   : redisService6
+2020-05-08 10:25:10.680  INFO 12600 --- [main] io.lettuce.core.EpollProvider            : Starting without optional epoll library
+2020-05-08 10:25:10.680  INFO 12600 --- [main] io.lettuce.core.KqueueProvider           : Starting without optional kqueue library
+2020-05-08 10:25:11.743  INFO 12600 --- [main] c.y.mallcache.controller.SecController   : redisService12
+2020-05-08 10:25:11.898  INFO 12600 --- [main] c.y.mallcache.controller.SecController   : redisService11
+2020-05-08 10:25:12.414  INFO 12600 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3e6104fc, org.springframework.security.web.context.SecurityContextPersistenceFilter@d771cc9, org.springframework.security.web.header.HeaderWriterFilter@17d88132, org.springframework.security.web.authentication.logout.LogoutFilter@2e48362c, com.yyf.mallcache.fileter.ValidImageFileter@12359a82, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@1fb669c3, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4671115f, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1583741e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@68df9280, org.springframework.security.web.session.SessionManagementFilter@16eccb2e, org.springframework.security.web.access.ExceptionTranslationFilter@6bc407fd, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@74bf1791]
+2020-05-08 10:25:12.899  INFO 12600 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-05-08 10:25:13.914  INFO 12600 --- [main] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [101.37.79.100:5672]
+2020-05-08 10:25:14.305  INFO 12600 --- [main] o.s.a.r.c.CachingConnectionFactory       : Created new connection: rabbitConnectionFactory#41488b16:0/SimpleConnection@7b84fcf8 [delegate=amqp://guest@101.37.79.100:5672/, localPort= 59891]
+2020-05-08 10:25:14.961  INFO 12600 --- [main] s.a.ScheduledAnnotationBeanPostProcessor : No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+2020-05-08 10:25:14.993  INFO 12600 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-05-08 10:25:14.993  INFO 12600 --- [main] com.yyf.mallcache.MallCacheApplication   : Started MallCacheApplication in 14.797 seconds (JVM running for 15.697)
+2020-05-08 10:25:23.917  INFO 12600 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-05-08 10:25:23.917  INFO 12600 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-05-08 10:25:23.931  INFO 12600 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 8 ms
+2020-05-08 10:25:26.292  INFO 12600 --- [http-nio-8080-exec-9] c.y.m.redis.UserRedisCacheWriter         : put(name=condition key=[B@4f7d78b2
+2020-05-08 10:25:26.427  INFO 12600 --- [http-nio-8080-exec-9] c.y.m.service.impl.ProductServiceImpl    : [[Product [productId=1, productName=良品铺子 手剥松子218g 坚果炒货 巴西松子, productDetail=产品类型&烘炒类&原料产地&巴基斯坦&产地&湖北省武汉市&配料表&进口松子、食用盐&产品规格&210g&保质期&180天&产品标准号&GB/T 22165&生产许可证编号&QS4201 1801 0226&储存方法&请放置于常温、阴凉、通风、干燥处保存 &食用方法&开袋去壳即食, productPrice=38.80, productTaste=原味, productStorenumber=86, productSalesamount=106, image=Image [imageId=1, imageName=search1, imagePath=images/search/search1.jpg]], Product [productId=2, productName=纯手工自制 抹茶零食蔓越莓曲, productDetail=null, productPrice=16.00, productTaste=抹茶, productStorenumber=88, productSalesamount=12, image=Image [imageId=2, imageName=search2, imagePath=images/search/search2.jpg]], Product [productId=3, productName=黄楝公社 手工小麻花 湖北襄阳特产, productDetail=生产许可证编号&SC12414082313315&厂名& 闻喜县亚太食品厂&厂址& 山西省运城市闻喜县凹底镇栗村厂家&联系方式& 18903549733&配料表& 小麦粉、水、红枣、白砂糖等&储藏方法& 置于阴凉干燥处&保质期& 270食品添加剂& 泡打粉、小苏打、碳酸氢铵&口味& 原味 红枣 香葱 蜂蜜 黑糖&净含量& 400g&产地& 中国大陆&省份& 山西省&城市& 运城市&包装方式& 包装, productPrice=25.00, productTaste=海苔味, productStorenumber=63, productSalesamount=26, image=Image [imageId=3, imageName=search3, imagePath=images/search/search3.jpg]], Product [productId=4, productName=非遗正宗祥禾 八件枣花酥 , productDetail=null, productPrice=16.90, productTaste=原味, productStorenumber=64, productSalesamount=26, image=Image [imageId=4, imageName=search3, imagePath=images/search/search4.jpg]], Product [productId=5, productName=油炸黄金豆香酥豌豆, productDetail=生产许可证编号& SC11837132200474&产品标准号& GB/T22165-2008&厂名& 郯城县浩祥食品有限公司&厂址& 郯城县马头镇东爱国村厂家&联系方式& 13793938496&配料表& 豌豆 植物油 食用盐 白砂糖 辣椒粉 洋葱粉&储藏方法& 置于阴凉 通风 干燥处&保质期& 240&食品添加剂& 香辛料 烤牛肉香料&品牌& 柴师傅系列&产地& 中国大陆&省份& 山东省, productPrice=9.90, productTaste=牛肉味, productStorenumber=4, productSalesamount=26, image=Image [imageId=46, imageName=search46, imagePath=images/search/search46.jpg]], Product [productId=6, productName=萨拉米 1+1小鸡腿, productDetail=null, productPrice=29.90, productTaste=麻辣味, productStorenumber=46, productSalesamount=1114, image=Image [imageId=62, imageName=search62, imagePath=images/search/search62.jpg]], Product [productId=7, productName=ZEK 原味海苔, productDetail=null, productPrice=8.90, productTaste=原味, productStorenumber=48, productSalesamount=992, image=Image [imageId=68, imageName=search68, imagePath=images/search/search68.jpg]], Product [productId=8, productName=良品铺子甘栗仁80gx1, productDetail=null, productPrice=15.90, productTaste=蜂蜜味, productStorenumber=32, productSalesamount=501, image=Image [imageId=74, imageName=search74, imagePath=images/search/search74.jpg]]]]
+2020-05-08 10:25:38.459  INFO 12600 --- [SpringContextShutdownHook] o.s.a.r.l.SimpleMessageListenerContainer : Waiting for workers to finish.
+2020-05-08 10:25:39.068  INFO 12600 --- [SpringContextShutdownHook] o.s.a.r.l.SimpleMessageListenerContainer : Successfully waited for workers to finish.
+2020-05-08 10:25:39.068  INFO 12600 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-05-08 10:25:39.068  INFO 12600 --- [SpringContextShutdownHook] o.s.a.r.l.SimpleMessageListenerContainer : Shutdown ignored - container is not active already
+2020-05-08 10:25:39.193  INFO 12600 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2020-05-08 10:25:39.209  INFO 12600 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2020-05-08 10:53:42.314  INFO 14236 --- [main] com.yyf.mallcache.MallCacheApplication   : Starting MallCacheApplication v1.0-SNAPSHOT on DESKTOP-0GQ2AJO with PID 14236 (E:\Idea-workspace\mall-swap\target\mall-swap-1.0-SNAPSHOT.jar started by Yao98 in E:\Idea-workspace\mall-swap\target)
+2020-05-08 10:53:42.314  INFO 14236 --- [main] com.yyf.mallcache.MallCacheApplication   : No active profile set, falling back to default profiles: default
+2020-05-08 10:53:43.433  INFO 14236 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-05-08 10:53:43.433  INFO 14236 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2020-05-08 10:53:43.489  INFO 14236 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 28ms. Found 0 repository interfaces.
+2020-05-08 10:53:44.098  INFO 14236 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-05-08 10:53:44.946  INFO 14236 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-05-08 10:53:44.980  INFO 14236 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-05-08 10:53:44.981  INFO 14236 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.27]
+2020-05-08 10:53:45.086  INFO 14236 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-05-08 10:53:45.087  INFO 14236 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2687 ms
+2020-05-08 10:53:45.630  INFO 14236 --- [main] f.a.AutowiredAnnotationBeanPostProcessor : Autowired annotation is not supported on static fields: static javax.sql.DataSource com.yyf.mallcache.MallCacheApplication.dataSource
+2020-05-08 10:53:45.630  INFO 14236 --- [main] f.a.AutowiredAnnotationBeanPostProcessor : Autowired annotation is not supported on static fields: static javax.sql.DataSource com.yyf.mallcache.MallCacheApplication.dataSource
+2020-05-08 10:53:46.489  INFO 14236 --- [main] com.yyf.mallcache.util.BloomFilterUtil   : productMapperorg.apache.ibatis.binding.MapperProxy@43b0ade
+2020-05-08 10:53:46.592  INFO 14236 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-05-08 10:53:46.602  WARN 14236 --- [main] com.zaxxer.hikari.util.DriverDataSource  : Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2020-05-08 10:53:47.730  INFO 14236 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-05-08 10:53:49.362  INFO 14236 --- [main] c.y.mallcache.controller.SecController   : redisService6
+2020-05-08 10:53:49.486  INFO 14236 --- [main] io.lettuce.core.EpollProvider            : Starting without optional epoll library
+2020-05-08 10:53:49.488  INFO 14236 --- [main] io.lettuce.core.KqueueProvider           : Starting without optional kqueue library
+2020-05-08 10:53:50.498  INFO 14236 --- [main] c.y.mallcache.controller.SecController   : redisService12
+2020-05-08 10:53:50.599  INFO 14236 --- [main] c.y.mallcache.controller.SecController   : redisService11
+2020-05-08 10:53:51.066  INFO 14236 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4dba773d, org.springframework.security.web.context.SecurityContextPersistenceFilter@176996c3, org.springframework.security.web.header.HeaderWriterFilter@73844119, org.springframework.security.web.authentication.logout.LogoutFilter@58f39564, com.yyf.mallcache.fileter.ValidImageFileter@1d9bd4da, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@38ed139b, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1687eb01, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@242b6e1a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4c58255, org.springframework.security.web.session.SessionManagementFilter@1859e2a4, org.springframework.security.web.access.ExceptionTranslationFilter@350d3f4d, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@3204e238]
+2020-05-08 10:53:51.390  INFO 14236 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-05-08 10:53:52.396  INFO 14236 --- [main] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [101.37.79.100:5672]
+2020-05-08 10:53:52.665  INFO 14236 --- [main] o.s.a.r.c.CachingConnectionFactory       : Created new connection: rabbitConnectionFactory#164a62bf:0/SimpleConnection@6dc9da2d [delegate=amqp://guest@101.37.79.100:5672/, localPort= 64512]
+2020-05-08 10:53:53.026  INFO 14236 --- [main] s.a.ScheduledAnnotationBeanPostProcessor : No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+2020-05-08 10:53:53.049  INFO 14236 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2020-05-08 10:53:53.062  INFO 14236 --- [main] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2020-05-08 10:53:53.062 ERROR 14236 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+2020-05-08 10:53:53.212  INFO 14236 --- [main] o.s.a.r.l.SimpleMessageListenerContainer : Waiting for workers to finish.
+2020-05-08 10:53:54.089  INFO 14236 --- [main] o.s.a.r.l.SimpleMessageListenerContainer : Successfully waited for workers to finish.
+2020-05-08 10:53:54.094  INFO 14236 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-05-08 10:53:54.095  INFO 14236 --- [main] o.s.a.r.l.SimpleMessageListenerContainer : Shutdown ignored - container is not active already
+2020-05-08 10:53:54.132  INFO 14236 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2020-05-08 10:53:54.163  INFO 14236 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

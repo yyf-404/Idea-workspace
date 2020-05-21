@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yyf.mallcache.mapper.SecOrderMapper">
+  <resultMap id="BaseResultMap" type="com.yyf.mallcache.bean.SecOrder">
+
+    <id column="secorder_id"  property="secorderId" />
+    <result column="user_id"  property="userId" />
+    <result column="secproduct_id"  property="secproductId" />
+  </resultMap>
+  <insert id="insert" parameterType="com.yyf.mallcache.bean.SecOrder">
+    insert into sec_order ( user_id,secproduct_id )
+    values ( #{userId}, #{secproductId} )
+  </insert>
+  
+
+  <!--  SecOrder selectByuserIdAndsecProdectId(); -->
+  <select id="selectByuserIdAndsecProdectId"  resultMap="BaseResultMap">
+    select  secorder_id,user_id,secproduct_id
+    from sec_order
+    where user_id = #{userId} and secproduct_id=#{secproductId}
+  </select>
+  
+
+</mapper>

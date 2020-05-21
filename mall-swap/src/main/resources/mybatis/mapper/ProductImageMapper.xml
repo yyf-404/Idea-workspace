@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yyf.mallcache.mapper.ProductImageMapper" >
+    <resultMap id="BaseResultMap" type="com.yyf.mallcache.bean.ProductImage" >
+        <result column="image_id" property="imageId" jdbcType="INTEGER" />
+        <result column="product_id" property="productId" jdbcType="INTEGER" />
+        <result column="image_kind" property="imageKind" jdbcType="VARCHAR" />
+    </resultMap>
+
+    <insert id="insert" parameterType="com.yyf.mallcache.bean.ProductImage" useGeneratedKeys="true">
+    insert into product_image ( product_id,image_id, image_kind )
+    values ( #{productId},#{imageId}, #{imageKind})
+  </insert>
+
+
+</mapper>

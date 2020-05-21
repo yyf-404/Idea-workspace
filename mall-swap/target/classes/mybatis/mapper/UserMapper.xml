@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yyf.mallcache.mapper.UserMapper" >
+  <resultMap id="BaseResultMap" type="com.yyf.mallcache.bean.User" >
+    <id column="user_id" property="userId" jdbcType="INTEGER" />
+    <result column="login_id" property="loginId" jdbcType="VARCHAR" />
+    <result column="login_password" property="loginPassword" jdbcType="VARCHAR" />
+    <result column="user_name" property="userName" jdbcType="VARCHAR" />
+    <result column="user_phone" property="userPhone" jdbcType="INTEGER" />
+    <result column="user_email" property="userEmail" jdbcType="VARCHAR" />
+    <!-- <result column="image_id" property="imageId" jdbcType="INTEGER" /> -->
+    <association property="headImage"
+			select="com.yyf.mallcache.mapper.ImageMapper.selectByPrimaryKey"
+			column="image_id" fetchType="eager">
+		</association>
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+   
+    delete from mall_user
+    where user_id = #{userId,jdbcType=INTEGER}
+  </delete>
+  
+  <insert id="insert" parameterType="com.yyf.mallcache.bean.User"
+  useGeneratedKeys="true" keyProperty="userId" >
+    insert into mall_user ( login_id, login_password, 
+      user_name, user_phone, user_email,image_id )
+    values ( #{loginId}, #{loginPassword}, 
+      #{userName}, #{userPhone}, #{userEmail},#{headImage.imageId})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.yyf.mallcache.bean.User" >
+    update mall_user
+    set login_id = #{loginId,jdbcType=VARCHAR},
+      login_password = #{loginPassword,jdbcType=VARCHAR},
+      user_name = #{userName,jdbcType=VARCHAR},
+      user_phone = #{userPhone,jdbcType=INTEGER},
+      user_email = #{userEmail,jdbcType=VARCHAR},
+      image_id = #{imageId,jdbcType=INTEGER}
+    where user_id = #{userId,jdbcType=INTEGER}
+  </update>
+  <!--Integer updateUserImage(@Param("userId")Integer userId,@Param("imageId")Integer imageId); -->
+  <update id="updateUserImage">
+  update mall_user
+  set  image_id = #{imageId}
+   where user_id = #{userId}
+  </update>
+  
+  <!-- Integer updateLoginPassword(@Param("userId")Integer userId,@Param("loginPassword")Integer loginPassword); -->
+ <update id="updateLoginPassword">
+   update mall_user
+   set  login_password = #{loginPassword}
+   where user_id = #{userId}
+ </update>
+ 
+ <!--     Integer updateUserName(@Param("userId")Integer userId,@Param("userName")String userName); -->
+  <update id="updateUserName">
+    update mall_user
+   set  user_name = #{userName}
+   where user_id = #{userId}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select user_id, login_id, login_password, user_name, user_phone, user_email, image_id
+    from mall_user
+    where user_id = #{userId,jdbcType=INTEGER}
+  </select>
+  
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select user_id, login_id, login_password, user_name, user_phone, user_email, image_id
+    from mall_user
+  </select>
+  
+  <!--  User selectByLoginId(String loginId); -->
+  <select id="selectByLoginId" resultMap="BaseResultMap">
+    select user_id, login_id, login_password, user_name, user_phone, user_email, image_id
+    from mall_user
+    <where>
+    login_id=#{loginId}
+    </where>
+  </select>
+  
+  <!-- Integer confirmLoginId(String loginId); -->
+  <select id="confirmLoginId" resultType="Integer" >
+  select count(*)  from mall_user where login_id=#{loginId}
+  </select>
+</mapper>
